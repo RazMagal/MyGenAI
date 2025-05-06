@@ -5,8 +5,9 @@ from langchain_huggingface import HuggingFaceEndpoint,ChatHuggingFace
 logger = get_logger(__name__)
 
 import os
+print(os.getenv('USER', "None"))
 if os.getenv('USER', "None") == 'appuser': # streamlit
-    os.environ["HUGGINGFACEHUB_API_TOKEN"] = st.secrets['HF_TOKEN']
+    os.environ["HUGGINGFACEHUB_API_TOKEN"] = st.secrets['hug_tok']
 else:
     # ALSO ADD HERE YOUR PROXY VARS
     os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.environ["MY_HF_API_TOKEN"]
